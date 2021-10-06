@@ -4,7 +4,7 @@ name: release
 on:
   push:
     branches:
-      - main
+      - SI-33-Harden-S3-security
   workflow_dispatch: {}
 jobs:
   release:
