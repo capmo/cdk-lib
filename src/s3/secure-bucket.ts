@@ -1,13 +1,13 @@
-import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam'
-import { BlockPublicAccess, Bucket, BucketProps } from '@aws-cdk/aws-s3'
-import { Construct } from '@aws-cdk/core'
+import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam';
+import { BlockPublicAccess, Bucket, BucketProps } from '@aws-cdk/aws-s3';
+import { Construct } from '@aws-cdk/core';
 
 export class SecureBucket extends Bucket {
   constructor(scope: Construct, id: string, props?: BucketProps) {
     super(scope, id, {
       ...props,
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
-    })
+    });
 
     this.addToResourcePolicy(
       new PolicyStatement({
@@ -20,7 +20,7 @@ export class SecureBucket extends Bucket {
         effect: Effect.DENY,
         principals: [new ArnPrincipal('*')],
         resources: [this.arnForObjects('*'), this.bucketArn],
-      })
-    )
+      }),
+    );
   }
 }
