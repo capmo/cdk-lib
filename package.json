@@ -1,0 +1,41 @@
+{
+  "name": "@capmo/cdk-lib",
+  "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": "https://github.com/capmo/cdk-lib",
+  "description": "A repository which holds custom CDK constructs used at Capmo",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --max-warnings=0 src/**/*.ts"
+  },
+  "keywords": [
+    "typescript",
+    "eslint",
+    "jest",
+    "capmo",
+    "cdk"
+  ],
+  "author": "tech@capmo.de",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/capmo/cdk-lib/issues"
+  },
+  "homepage": "https://github.com/capmo/cdk-lib#readme",
+  "dependencies": {
+    "@capmo/config": "1.11.9"
+  },
+  "devDependencies": {
+    "@aws-cdk/aws-iam": "1.120.0",
+    "@aws-cdk/aws-s3": "1.120.0",
+    "@aws-cdk/core": "1.120.0",
+    "@types/eslint": "7.2.14",
+    "@types/eslint-plugin-prettier": "2.2.0",
+    "@typescript-eslint/eslint-plugin": "3.10.1",
+    "@typescript-eslint/parser": "3.10.1",
+    "eslint": "7.25.0",
+    "eslint-config-prettier": "7.2.0",
+    "eslint-plugin-prettier": "3.3.1"
+  }
+}
