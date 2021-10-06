@@ -3,7 +3,7 @@ name: Create Tag and Release
 on:
   push:
     branches:
-      - main
+      - SI-33-Harden-S3-security
 
 jobs:
   tag-release:
