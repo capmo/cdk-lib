@@ -1,5 +1,5 @@
 import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam';
-import { BlockPublicAccess, Bucket, BucketProps } from '@aws-cdk/aws-s3';
+import { BlockPublicAccess, Bucket, BucketEncryption, BucketProps } from '@aws-cdk/aws-s3';
 import { Construct } from '@aws-cdk/core';
 
 export class SecureBucket extends Bucket {
@@ -7,6 +7,8 @@ export class SecureBucket extends Bucket {
     super(scope, id, {
       ...props,
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+      bucketKeyEnabled: true,
+      encryption: BucketEncryption.KMS,
     });
 
     this.addToResourcePolicy(

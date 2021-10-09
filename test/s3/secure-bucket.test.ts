@@ -8,4 +8,11 @@ describe('SecureBucket', () => {
 
     expect(bucket.policy?.document).toBeDefined();
   });
+
+  it('to use server side encryption', () => {
+    const stack = new Stack();
+    const bucket = new SecureBucket(stack, 'secure-bucket');
+
+    expect(bucket.encryptionKey).toBeDefined();
+  });
 });
