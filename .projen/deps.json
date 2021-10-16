@@ -6,6 +6,10 @@
       "type": "build"
     },
     {
+      "name": "@types/chance",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -20,6 +24,10 @@
     },
     {
       "name": "@typescript-eslint/parser",
+      "type": "build"
+    },
+    {
+      "name": "chance",
       "type": "build"
     },
     {
@@ -95,6 +103,11 @@
       "type": "peer"
     },
     {
+      "name": "@aws-cdk/aws-kms",
+      "version": "^1.126.0",
+      "type": "peer"
+    },
+    {
       "name": "@aws-cdk/aws-s3",
       "version": "^1.126.0",
       "type": "peer"
@@ -111,6 +124,11 @@
     },
     {
       "name": "@aws-cdk/aws-iam",
+      "version": "^1.126.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/aws-kms",
       "version": "^1.126.0",
       "type": "runtime"
     },

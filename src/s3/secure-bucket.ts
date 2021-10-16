@@ -1,3 +1,4 @@
+import { Key } from '@aws-cdk/aws-kms';
 import { BlockPublicAccess, Bucket, BucketEncryption, BucketProps } from '@aws-cdk/aws-s3';
 import { Construct, Tags } from '@aws-cdk/core';
 
@@ -5,11 +6,17 @@ export const S3InventoryEnforceSSETagKey = '__S3Inventory_EnforceSSE';
 
 export class SecureBucket extends Bucket {
   constructor(scope: Construct, id: string, props?: BucketProps) {
+    // Retrieves the default S3 KMS key
+    const s3KmsKey = Key.fromLookup(scope, 'S3DefaultKMSKey', {
+      aliasName: 'alias/aws/s3',
+    });
+
     super(scope, id, {
       ...props,
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       bucketKeyEnabled: true,
-      encryption: BucketEncryption.KMS_MANAGED,
+      encryption: BucketEncryption.KMS,
+      encryptionKey: s3KmsKey,
       enforceSSL: true,
     });
 
