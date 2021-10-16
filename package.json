@@ -28,8 +28,8 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "Sebastian Schlecht",
-    "email": "sebastian.schlecht@capmo.de",
+    "name": "Klemens Mang",
+    "email": "klemens.mang@capmo.de",
     "organization": false
   },
   "devDependencies": {

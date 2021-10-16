@@ -1,6 +1,8 @@
 import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam';
 import { BlockPublicAccess, Bucket, BucketEncryption, BucketProps } from '@aws-cdk/aws-s3';
-import { Construct } from '@aws-cdk/core';
+import { Construct, Tags } from '@aws-cdk/core';
+
+export const S3InventoryEnforceSSETagKey = '__S3Inventory_EnforceSSE';
 
 export class SecureBucket extends Bucket {
   constructor(scope: Construct, id: string, props?: BucketProps) {
@@ -24,5 +26,11 @@ export class SecureBucket extends Bucket {
         resources: [this.arnForObjects('*'), this.bucketArn],
       }),
     );
+
+    /*
+     * Adds the S3 bucket tag which is used as a selector by the s3-bucket-encryptor
+     * to encrypt existing non-encrypted S3 objects
+     */
+    Tags.of(this).add(S3InventoryEnforceSSETagKey, 'true');
   }
 }
