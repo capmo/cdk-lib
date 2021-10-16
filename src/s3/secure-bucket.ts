@@ -1,4 +1,3 @@
-import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam';
 import { BlockPublicAccess, Bucket, BucketEncryption, BucketProps } from '@aws-cdk/aws-s3';
 import { Construct, Tags } from '@aws-cdk/core';
 
@@ -10,22 +9,9 @@ export class SecureBucket extends Bucket {
       ...props,
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       bucketKeyEnabled: true,
-      encryption: BucketEncryption.KMS,
+      encryption: BucketEncryption.KMS_MANAGED,
+      enforceSSL: true,
     });
-
-    this.addToResourcePolicy(
-      new PolicyStatement({
-        actions: ['s3:*'],
-        conditions: {
-          Bool: {
-            'aws:SecureTransport': 'false',
-          },
-        },
-        effect: Effect.DENY,
-        principals: [new ArnPrincipal('*')],
-        resources: [this.arnForObjects('*'), this.bucketArn],
-      }),
-    );
 
     /*
      * Adds the S3 bucket tag which is used as a selector by the s3-bucket-encryptor
