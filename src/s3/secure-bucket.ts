@@ -7,7 +7,7 @@ export const S3InventoryEnforceSSETagKey = '__S3Inventory_EnforceSSE';
 export class SecureBucket extends Bucket {
   constructor(scope: Construct, id: string, props?: BucketProps) {
     // Retrieves the default S3 KMS key
-    const s3KmsKey = Key.fromLookup(scope, 'S3DefaultKMSKey', {
+    const s3KmsKey = Key.fromLookup(scope, `${id}-kmsKey`, {
       aliasName: 'alias/aws/s3',
     });
 
