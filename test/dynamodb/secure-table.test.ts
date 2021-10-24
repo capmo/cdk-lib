@@ -1,5 +1,5 @@
+import { AttributeType, Table } from '@aws-cdk/aws-dynamodb';
 import { RemovalPolicy, Stack } from '@aws-cdk/core';
-import { AttributeType, Table } from '@aws-cdk/aws-dynamodb'
 import { SecureTable } from '../../src/dynamodb';
 
 jest.mock('@aws-cdk/aws-dynamodb', () => ({
