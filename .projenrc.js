@@ -16,6 +16,7 @@ const project = new AwsCdkConstructLibrary({
 
   cdkDependencies: [
     '@aws-cdk/core',
+    '@aws-cdk/aws-dynamodb',
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-kms',
     '@aws-cdk/aws-s3',
