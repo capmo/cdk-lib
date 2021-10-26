@@ -6,7 +6,7 @@ const {
 const project = new AwsCdkConstructLibrary({
   author: 'Klemens Mang',
   authorAddress: 'klemens.mang@capmo.de',
-  cdkVersion: '1.126.0',
+  cdkVersion: '1.129.0',
   defaultReleaseBranch: 'main',
   name: '@capmo/cdk-lib',
   packageManager: NodePackageManager.NPM,
@@ -20,6 +20,7 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-kms',
     '@aws-cdk/aws-s3',
+    '@aws-cdk/aws-sqs',
   ] /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */,
   cdkTestDependencies: [
     '@aws-cdk/assert',
@@ -27,6 +28,11 @@ const project = new AwsCdkConstructLibrary({
   deps: [],
   // description: undefined,            /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: [
+    '@aws-cdk/core',
+    '@aws-cdk/aws-iam',
+    '@aws-cdk/aws-kms',
+    '@aws-cdk/aws-s3',
+    '@aws-cdk/aws-sqs',
     '@types/chance',
     'chance',
   ],
