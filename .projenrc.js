@@ -6,7 +6,7 @@ const {
 const project = new AwsCdkConstructLibrary({
   author: 'Klemens Mang',
   authorAddress: 'klemens.mang@capmo.de',
-  cdkVersion: '1.129.0',
+  cdkVersion: '1.130.0',
   defaultReleaseBranch: 'main',
   name: '@capmo/cdk-lib',
   packageManager: NodePackageManager.NPM,
